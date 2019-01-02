@@ -25,3 +25,10 @@ ForcastMain.propTypes ={
     icon: PropTypes.string.isRequired,
     temperature: PropTypes.number.isRequired
 };
+ForcastMain.defaultProps ={
+    city: '',
+    date: '',
+    weatherType: '',
+    icon: '',
+    temperature: 0
+};
