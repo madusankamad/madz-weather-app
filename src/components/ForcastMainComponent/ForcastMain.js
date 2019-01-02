@@ -5,7 +5,7 @@ import convert from 'convert-units';
 
 export const ForcastMain = (props) => {
     const {city,date,weatherType,icon,temperature,mUnit} = props;
-    const convertedTemprature = Math.floor(convert(temperature).from('K').to(mUnit));
+    const convertedTemprature = temperature? Math.floor(convert(temperature).from('K').to(mUnit)):'';
     return (<div className="main-forcast">
         <div className="city-title">{city}</div>
         <div className="date-box">{date}</div>
@@ -23,5 +23,5 @@ ForcastMain.propTypes ={
     date: PropTypes.string.isRequired,
     weatherType: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired,
-    temperature: PropTypes.string.isRequired
+    temperature: PropTypes.number.isRequired
 };

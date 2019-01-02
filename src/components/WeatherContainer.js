@@ -16,6 +16,11 @@ export class WeatherContainer extends Component {
             selectedResult: getForcastDataByTime(this.state.allForcastResult, data.value)
         })
     };
+    changeCityHandler = (evt, data) => {
+        console.log(data.value);
+        //const cityId = data.value;
+        this.fetchNewData(data.value)
+    };
 
     constructor() {
         super();
@@ -25,7 +30,9 @@ export class WeatherContainer extends Component {
             selectedTime: '2019-01-04 12:00:00',
             dateList: [],
             allForcastResult: {},
-            measurementUnit: 'F'
+            tempUnit: 'F',
+            selectedCity: '',
+            selectedWeatherType: 'none'
         };
     }
 
@@ -41,9 +48,21 @@ export class WeatherContainer extends Component {
         })
     }
 
+    fetchNewData = (cityId)=>{
+
+        getWeatherInfoByCityId(cityId).then(response => {
+            //this.setState({allResult: response.data});
+            const selectedResult = getForcastDataByTime(response.data, this.state.selectedTime);
+            const dateList = getDateList(response.data);
+            console.log(selectedResult);
+
+            this.setState({allForcastResult: response.data, selectedResult: selectedResult, dateList: dateList});
+        })
+    };
+
     render() {
         const {city, date, icon, temperature, weather} = this.state.selectedResult;
-        const {measurementUnit} = this.state;
+        const {tempUnit} = this.state;
 
         return (<Container className="weather-container">
             <Grid>
@@ -52,7 +71,7 @@ export class WeatherContainer extends Component {
                                  date={date}
                                  icon={icon}
                                  temperature={temperature}
-                                 mUnit = {measurementUnit}
+                                 mUnit = {tempUnit}
                                  weatherType={weather}/>
                 </Grid.Row>
 
@@ -69,7 +88,7 @@ export class WeatherContainer extends Component {
                         return {text: date, value: date}
                     })}/>
 
-            <CityList/>
+            <CityList changeHandler={this.changeCityHandler}/>
 
 
         </Container>);
