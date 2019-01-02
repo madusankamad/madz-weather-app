@@ -1,0 +1,38 @@
+.main-forcast{
+  color: #878787;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  .city-title{
+    font-size: 24px;
+    font-weight: normal;
+
+  }
+  .date-box,.weather-type-box{
+    font-size: 18px;
+    font-weight: lighter;
+  }
+
+  .temp-row {
+    margin-top: 20px;
+    display: flex;
+    .weather-icon {
+      margin: auto;
+      img{
+        width: 64px;
+        height: auto;
+      }
+    }
+    .temp-box {
+      margin: auto;
+      h1{
+        font-size:64px;
+        color: #000;
+      }
+
+    }
+    .temp-unit {
+    }
+  }
+
+}

@@ -1,0 +1,17 @@
+.day-container{
+  background: yellow;
+  border: 1px solid #878787;
+  padding: 3px;
+  border-radius: 3px;
+  text-align: center;
+  .day,.icon,.temp{
+    width: 74px;
+  }
+  .icon{
+    img{
+      height: 48px;
+      width: 48px
+    }
+
+  }
+}
