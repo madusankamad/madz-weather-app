@@ -1,6 +1,6 @@
 import React from 'react';
 import {DayComponent} from "./DayComponent";
-import {Container, Grid, Select} from 'semantic-ui-react';
+import { Grid} from 'semantic-ui-react';
 import {convertTemp, getDayNameFromDate} from '../../helpers/helperUtils'
 
 export const DayListComponent = (props) => {

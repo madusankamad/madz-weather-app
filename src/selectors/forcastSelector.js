@@ -78,11 +78,10 @@ const GroupedForcastDataFromDate = (forcastData)=> {
         InfoByDate.push(dataObj)
     });
 
-
-
     //console.log('GroupDataByDate',groupsByDate, 'Filterdata',InfoByDate);
     return InfoByDate;
 };
+
 
 const filterTempratures = (dataArray)=>{
 
