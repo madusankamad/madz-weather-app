@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {WEATHER_API} from '../config/config';
+import {WEATHER_API} from '../Const/CONSTANTS';
 
 export const getWeatherInfoByCityId = (cityId='524901') => {
     const CitySearchParam = 'id='+cityId;
