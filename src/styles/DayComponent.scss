@@ -1,16 +1,38 @@
 .day-container{
-  background: yellow;
-  border: 1px solid #878787;
-  padding: 3px;
-  border-radius: 3px;
+  //background: yellow;
+  border: 1px solid transparent;
+  padding: 20px;
+  display: inline-block;
   text-align: center;
+  width: 100px;
+  margin: 0 10px 0 0;
+  color: #878787;
+  transition: .3s all;
+  &:hover{
+    border-color: #878787;
+    cursor: pointer;
+    background: #cccccc;
+  }
   .day,.icon,.temp{
-    width: 74px;
+    width: 100%;
+    display: inline-block;
+    margin: 0px auto;
+    font-size: 25px;
+    text-align: center;
+    >div{
+      //background: red;
+      margin: auto;
+    }
+  }
+  .temp{
+    font-size: 18px;
   }
   .icon{
     img{
       height: 48px;
-      width: 48px
+      width: 48px;
+      display: inline-block;
+
     }
 
   }

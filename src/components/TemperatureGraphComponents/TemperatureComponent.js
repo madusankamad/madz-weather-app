@@ -1,26 +1,52 @@
 import React from 'react';
-import {AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,ResponsiveContainer} from 'recharts';
-const graphData  ={data: [
-    {name: 'Page A', uv: 4000, pv: 2400, amt: 2400},
-    {name: 'Page B', uv: 3000, pv: 1398, amt: 2210},
-    {name: 'Page C', uv: 2000, pv: 9800, amt: 2290},
-    {name: 'Page D', uv: 2780, pv: 3908, amt: 2000},
-    {name: 'Page E', uv: 1890, pv: 4800, amt: 2181},
-    {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
-    {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
+import {AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, LabelList} from 'recharts';
 
-],
-    activeIndex: 0,
-};
+const graphColor= '#FFF5CC';
+const strokeColor= '#FFE991';
+const xDataKey ='hour';
+const YareaDataKey = 'temperature';
+const chartType = 'monotoneX';
 
-export const TemperatureComponent = () => {
-    return (<div className="temprature-component">
+export const TemperatureGraphComponent = (props) => {
+    const {data, dotClick} = props;
 
-        <AreaChart activeDot={true} width={800} height={200} data={graphData.data} margin={{top: 10, right: 30, left: 0, bottom: 0}}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name"/>
-            <YAxis/>
-            <Area type='natural' dataKey='uv' stroke='#8884d8' fill='red' dot={{onClick: ()=>alert('dddd')}} />
+    return (<div className="temprature-graph-component">
+
+        <AreaChart activeDot={true}
+                   width={750}
+                   height={200}
+                   data={data}
+                   dot={true}
+                   margin={{ top: 20, right: 30, left: 0, bottom: 0 }}
+        >
+
+            <XAxis dataKey={xDataKey}
+                   padding={{ left: 20 }}
+                   axisLine={false}
+                   tickSize={3}
+
+            />
+            <Tooltip/>
+
+            <Area
+                type={chartType}
+                dataKey={YareaDataKey}
+                stroke={strokeColor}
+                fill={graphColor}
+                dot={{onClick: (data) => dotClick(data.payload.date)}}
+                activeDot={{onClick: (data) => dotClick(data.payload.date)}}
+
+            >
+                <LabelList dataKey={YareaDataKey} position="top" />
+
+            </Area>
+
         </AreaChart>
-        </div>)
+
+    </div>)
 };
+
+TemperatureGraphComponent.defaultProps = {
+    dotClick: (evt, data) => console.log('clicked on Dot', data),
+    data: []
+}

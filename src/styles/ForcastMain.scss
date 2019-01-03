@@ -3,9 +3,14 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
+  margin: 15px 30px;
+  //background: yellow;
+  width: 220px;
+  height: 200px;
   .city-title{
     font-size: 24px;
     font-weight: normal;
+    line-height: 25px;
 
   }
   .date-box,.weather-type-box{
@@ -25,9 +30,12 @@
     }
     .temp-box {
       margin: auto;
+      //background: red;
+      width: 80px;
       h1{
         font-size:64px;
         color: #000;
+        text-align: right;
       }
 
     }
