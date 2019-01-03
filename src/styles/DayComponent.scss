@@ -1,7 +1,7 @@
 .day-container{
   //background: yellow;
   border: 1px solid transparent;
-  padding: 20px;
+  padding: 10px;
   display: inline-block;
   text-align: center;
   width: 100px;
@@ -17,7 +17,7 @@
     width: 100%;
     display: inline-block;
     margin: 0px auto;
-    font-size: 25px;
+    font-size: 18px;
     text-align: center;
     >div{
       //background: red;
@@ -25,7 +25,7 @@
     }
   }
   .temp{
-    font-size: 18px;
+    font-size: 15px;
   }
   .icon{
     img{

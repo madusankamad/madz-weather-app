@@ -73,14 +73,14 @@ const GroupedForcastDataFromDate = (forcastData)=> {
         return moment(item.dt_txt).startOf('day').format();
     });
     _.forEach(groupsByDate, function(value, key) {
-        let dataObj = {date: key, ...filterTempratures(value)};
+        let dataObj = {dateAveraged: key, ...filterTempratures(value)};
 
         InfoByDate.push(dataObj)
     });
 
 
 
-    console.log('GroupDataByDate',groupsByDate, 'Filterdata',InfoByDate);
+    //console.log('GroupDataByDate',groupsByDate, 'Filterdata',InfoByDate);
     return InfoByDate;
 };
 
@@ -90,8 +90,9 @@ const filterTempratures = (dataArray)=>{
         const maxTemp=[];
         const temp=[];
         const weatherInfo={main:[], description:[],icon:[]};
+        const dateList = [];
 
-    dataArray.map( ({main,weather}) => {
+    dataArray.map( ({main,weather,dt_txt}) => {
 
         minTemp.push(main.temp_min);
         maxTemp.push(main.temp_max);
@@ -101,10 +102,12 @@ const filterTempratures = (dataArray)=>{
         weatherInfo.description.push(weather[0].description);
         weatherInfo.icon.push(getIconUrl(weather[0].icon));
 
+        dateList.push(dt_txt);
+
         return false;
     });
 
-    return {minTemp:_.min(minTemp), maxTemp:_.max(maxTemp), temp: temp, weatherInfo: weatherInfo}
+    return {minTemp:_.min(minTemp), maxTemp:_.max(maxTemp), temp: temp, weatherInfo: weatherInfo, date: dateList[Math.floor(dateList.length/2)]}
 
 };
 

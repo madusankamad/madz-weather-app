@@ -1,11 +1,12 @@
 import React from 'react';
-import {Image, Grid} from 'semantic-ui-react'
+import {Image} from 'semantic-ui-react';
 
 export const DayComponent = (props) => {
-    const {day, icon, minTemp, maxTemp, onClickHandler} = props;
+    const {day, icon, minTemp, maxTemp, changeDateHandler,fullDate} = props;
+
 
     return (
-        <div className='day-container' onClick={onClickHandler}>
+        <div className='day-container' onClick={()=>{changeDateHandler(fullDate); return false}}>
             <div className="day">
                 <div>{day}</div>
             </div>

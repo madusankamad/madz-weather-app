@@ -8,6 +8,7 @@ import {Container, Grid, Select} from 'semantic-ui-react';
 import {CityList} from '../components/FilterComponents/CityFilter';
 import {cityData} from '../Const/CONSTANTS';
 import {TempUnits} from '../Const/CONSTANTS';
+import {getFormattedDate} from '../helpers/helperUtils';
 
 
 export class WeatherContainer extends Component {
@@ -16,10 +17,11 @@ export class WeatherContainer extends Component {
 
     };
     changeDate = (date) => {
+        console.log(date);
         this.setState({
             selectedTime: date
         });
-        this.updateGraphs(this.state.allForcastResult, date, this.state.tempUnit);
+       this.updateGraphs(this.state.allForcastResult, date, this.state.tempUnit);
 
     };
     changeCityHandler = (evt, data) => {
@@ -99,12 +101,11 @@ export class WeatherContainer extends Component {
                     <CityList changeHandler={this.changeCityHandler}/>
                 </Grid.Row>
             </Grid>
-
             <Grid className="weather-container">
                 <Grid.Row>
                     <ForcastMain
                         city={city}
-                        date={date}
+                        date={getFormattedDate(date,"dddd h a")}
                         icon={icon}
                         temperature={temperature}
                         mUnit={tempUnit}
@@ -121,12 +122,10 @@ export class WeatherContainer extends Component {
                     <TemperatureGraphComponent data={temperatureGraphData} dotClick={this.changeDate}/>
                 </Grid.Row>
                 <Grid.Row>
-                    <DayListComponent dataSet={groupedForcastResult} tempUnit={tempUnit}/>
+                    <DayListComponent dataSet={groupedForcastResult} tempUnit={tempUnit} changeDateHandler={this.changeDate}/>
                 </Grid.Row>
 
             </Grid>
-
-
         </Container>);
     }
 }

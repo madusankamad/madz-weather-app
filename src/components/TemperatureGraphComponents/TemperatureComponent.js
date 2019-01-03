@@ -49,4 +49,4 @@ export const TemperatureGraphComponent = (props) => {
 TemperatureGraphComponent.defaultProps = {
     dotClick: (evt, data) => console.log('clicked on Dot', data),
     data: []
-}
+};
