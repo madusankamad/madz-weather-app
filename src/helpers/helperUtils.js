@@ -1,11 +1,11 @@
-import {TempUnits} from '../Const/CONSTANTS';
+import {TEMP_UNITS} from '../Const/CONSTANTS';
 import convert from 'convert-units';
 import moment from 'moment';
 import {WEATHER_ICON} from '../Const/CONSTANTS';
 
 
 export const convertTemp = (value,toUnit)=>{
-    return Math.floor(convert(value).from(TempUnits.general).to(toUnit));
+    return Math.floor(convert(value).from(TEMP_UNITS.general).to(toUnit));
 };
 
 export const getHourFromDate = (date)=>{

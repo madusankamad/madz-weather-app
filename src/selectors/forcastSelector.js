@@ -1,12 +1,12 @@
 import _ from 'lodash';
 import {WEATHER_ICON} from '../Const/CONSTANTS';
-import {TempUnits} from '../Const/CONSTANTS';
+import {TEMP_UNITS} from '../Const/CONSTANTS';
 import {convertTemp, getHourFromDate, getDayFromDate,getIconUrl} from '../helpers/helperUtils';
 
 
 import moment from 'moment';
 
-export const getGraphAndFilterDataByDate = (forcastData, tempUnit = TempUnits.other.celcius, dateSelected) => {
+export const getGraphAndFilterDataByDate = (forcastData, tempUnit = TEMP_UNITS.other.celcius, dateSelected) => {
 
     const filteredListByDay = (_.filter(forcastData.list, (list) => getDayFromDate(list.dt_txt) === getDayFromDate(dateSelected)));
     GroupedForcastDataFromDate(forcastData);
@@ -51,7 +51,7 @@ const filterGraphData = (dataList, tempUnit) => {
     return finalList;
 };
 
-const mainForcastMapper = (forcastData, timeSelected, tempUnit = TempUnits.other.celcius) => {
+const mainForcastMapper = (forcastData, timeSelected, tempUnit = TEMP_UNITS.other.celcius) => {
     //Filter the data which is equal to given time
     const selectedInfo = (_.filter(forcastData.list, {'dt_txt': timeSelected}))[0];
 
@@ -88,7 +88,7 @@ const filterTempratures = (dataArray)=>{
         const minTemp=[];
         const maxTemp=[];
         const temp=[];
-        const weatherInfo={main:[], description:[],icon:[]};
+        const weatherInfo={main:[], description:[],icon:[],weatherTypes:[]};
         const dateList = [];
 
     dataArray.map( ({main,weather,dt_txt}) => {
@@ -100,6 +100,8 @@ const filterTempratures = (dataArray)=>{
         weatherInfo.main.push(weather[0].main);
         weatherInfo.description.push(weather[0].description);
         weatherInfo.icon.push(getIconUrl(weather[0].icon));
+        weatherInfo.weatherTypes.push(weather[0].description,weather[0].main);
+
 
         dateList.push(dt_txt);
 

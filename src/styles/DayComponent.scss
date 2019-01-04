@@ -13,6 +13,13 @@
     cursor: pointer;
     background: #cccccc;
   }
+  &.inactive{
+    opacity: .6;
+    &:hover{
+      border-color: transparent;
+      background: none;
+    }
+  }
   .day,.icon,.temp{
     width: 100%;
     display: inline-block;

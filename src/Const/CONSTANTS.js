@@ -4,25 +4,39 @@ const API_KEY = "c08583b207c6f114a8d3b6735059bd95";
 export const WEATHER_API = `http://api.openweathermap.org/data/2.5/forecast?{searchParams}&APPID=${API_KEY}`;
 export const WEATHER_ICON = "http://openweathermap.org/img/w/{icon-id}.png";
 
-export const TempUnits = {
+export const TEMP_UNITS = {
     general: "K",
-    other:{
+    other: {
         celcius: "C",
         farenheit: "F"
-        }
+    }
 
 };
 
-export const cityData = [
+export const WEATHER_TYPES ={
+    default: {value:'none',name:'none'},
+    list:[
+        {value:'none',name:'none'},
+        {value:'clouds',name:'clouds'},
+        {value:'clear',name:'clear'},
+        {value:'rain',name:'rain'},
+        {value:'sunny',name:'sunny'},
+        {value:'light rain',name:'light rain'}
+
+    ]
+};
+
+
+export const CITY_DATA = [
     {
-    "id": 707860,
-    "name": "Hurzuf",
-    "country": "UA",
-    "coord": {
-        "lon": 34.283333,
-        "lat": 44.549999
-    }
-},
+        "id": 707860,
+        "name": "Hurzuf",
+        "country": "UA",
+        "coord": {
+            "lon": 34.283333,
+            "lat": 44.549999
+        }
+    },
     {
         "id": 519188,
         "name": "Novinki",

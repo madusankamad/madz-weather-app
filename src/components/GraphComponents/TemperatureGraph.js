@@ -7,7 +7,7 @@ const xDataKey ='hour';
 const YareaDataKey = 'temperature';
 const chartType = 'monotoneX';
 
-export const TemperatureGraphComponent = (props) => {
+export const TemperatureGraph = (props) => {
     const {data, dotClick} = props;
 
     return (<div className="temprature-graph-component">
@@ -46,7 +46,7 @@ export const TemperatureGraphComponent = (props) => {
     </div>)
 };
 
-TemperatureGraphComponent.defaultProps = {
+TemperatureGraph.defaultProps = {
     dotClick: (evt, data) => console.log('clicked on Dot', data),
     data: []
 };
