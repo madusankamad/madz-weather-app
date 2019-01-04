@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import {WeatherComponent} from './WeatherComponent';
 import {getCityWeather} from '../_thunks/weatherApiThunks';
-import {changeDateSuccess} from '../_actions/filterActions';
+import {changeDateSuccess,changeWeatherTypeSuccess,changeCitySuccess} from '../_actions/filterActions';
 import {changeTempGraphUnit} from '../_actions/graphActions';
 import {newDataFetchSuccess} from '../_actions/commonActions';
 
@@ -11,7 +11,10 @@ const mapStateToProps = (state,props) => {
         weatherInfo: state.weatherInfo,
         graphs: state.graphs,
         mainForcast: state.mainForcast,
-        daysForcast: state.daysForcast
+        daysForcast: state.daysForcast,
+        selectedTime: state.filters.selectedDate,
+        selectedWeatherType: state.filters.selectedWeatherType,
+        selectedCityId: state.filters.selectedCityId
     }
 };
 const mapDispatchToProps = dispatch => {
@@ -19,12 +22,18 @@ const mapDispatchToProps = dispatch => {
         fetchWeatherInformationById : (cityId,time) => {
             dispatch(getCityWeather(cityId,time));
         },
-        changeDate : (date,options) => {
+        changeDateAndList : (date,options) => {
             dispatch(newDataFetchSuccess(options,date));
             dispatch(changeDateSuccess(date));
         },
         changeTempUnit: (unit) => {
             dispatch(changeTempGraphUnit(unit))
+        },
+        changeCity: (city) => {
+            dispatch(changeCitySuccess(city))
+        },
+        changeWeatherType: (city) => {
+            dispatch(changeWeatherTypeSuccess(city))
         }
     }
 };
