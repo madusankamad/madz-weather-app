@@ -1,5 +1,5 @@
 import {CalculateForcastInformation} from "../selectors/dataSelectors";
-import {setGraphTempDataSuccess} from "./graphActions";
+import {setGraphTempDataSuccess,setGraphFullTempDataSuccess} from "./graphActions";
 import {setMainForcastDataSuccess} from "./mainForcastActions";
 import {setForcastAllDaysSuccess} from "./dayForcastActions";
 
@@ -11,6 +11,7 @@ export const newDataFetchSuccess= (newData,time) => dispatch => {
 
     //Fill the data for temprature Graph
     dispatch(setGraphTempDataSuccess(CalculatedInfo.temperatureGraph));
+    dispatch(setGraphFullTempDataSuccess(CalculatedInfo.fullGraph.temperatureGraph));
 
     //Fill The data For Main Forcast
     dispatch(setMainForcastDataSuccess(CalculatedInfo.mainForcast));

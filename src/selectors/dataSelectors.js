@@ -13,10 +13,12 @@ export const CalculateForcastInformation = (dataList, time)=>{
 
     //Get the processed data for graphs
     const graphs = processDataForGraphs(filteredListByDay);
+    const graphsAllDays = processDataForGraphs(dataList);
     const mainForcast = mainForcastDataMapper(dataListForMainForcast);
     const daysForcast = ForcastDaysProcess(dataList);
 
-    return {...graphs, mainForcast: mainForcast, daysForcast: daysForcast};
+
+    return {...graphs, mainForcast: mainForcast, daysForcast: daysForcast, fullGraph:{...graphsAllDays}};
 
 };
 

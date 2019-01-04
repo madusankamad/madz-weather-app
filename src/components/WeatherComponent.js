@@ -57,7 +57,7 @@ export class WeatherComponent extends Component {
                     />
                 </Grid.Row>
                 <Grid.Row>
-                    {graphs.temperatureGraph && <TemperatureGraph tempUnit={tempUnit} data={graphs.temperatureGraph} dotClick={this.changeDate}/>}
+                    {graphs.temperatureGraph && <TemperatureGraph tempUnit={tempUnit} graphData={graphs}  dataOpt={graphs.temperatureGraph} dotClick={this.changeDate}/>}
                 </Grid.Row>
                 <Grid.Row>
                     <DayListComponent options={

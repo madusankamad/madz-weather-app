@@ -19,14 +19,14 @@ const FilterBar = (props) => {
             </Grid.Column>
             <Grid.Column>
                 <Dropdown onChange={changeCityHandler} placeholder='Select City' fluid search selection
-                          defaultValue={selectedCityId}
+                          labeled={true}
                         options={CITY_DATA.map(city => {
                             return {text: city.name, value: city.id}
                         })}/>
             </Grid.Column>
             <Grid.Column>
                 <Dropdown onChange={changeWeatherHandler}
-                          defaultValue={selectedWeatherType}
+                          labeled={true}
                         placeholder='Select Weather Type' fluid search selection
                         options={WEATHER_TYPES.list.map(weatherType => {
                             return {text: weatherType.name, value: weatherType.value}
