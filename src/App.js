@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import WeatherComponent from './components/WeatherComponentLink';
 import FilterBar from './components/FilterComponents/FilterBar';
 import {Provider} from 'react-redux';
-import {Container} from "semantic-ui-react";
+import {Container, Grid} from "semantic-ui-react";
 
 class App extends Component {
   render() {
@@ -10,7 +10,9 @@ class App extends Component {
         <Provider store={this.props.store}>
             <div className="App">
                 <Container>
+                    <Grid columns={1}>
                     <FilterBar/>
+                    </Grid>
                 </Container>
                 <WeatherComponent/>
             </div>
