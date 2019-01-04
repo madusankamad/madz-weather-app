@@ -9,19 +9,21 @@ const unitAxis = {
 };
 
 export const TemperatureGraph = (props) => {
-    //const [dataIndex, setIndex] = useState(0);
+    const [dataIndex, setDataIndex] = useState(0);
     const {tempUnit,dotClick,graphData} = props;
+
+    const dataSet = [graphData.temperatureGraph,graphData.temperatureGraphFull];
     const graphColor= '#FFF5CC';
     const strokeColor= '#FFE991';
     const xDataKey ='hour';
     const YareaDataKey = unitAxis[tempUnit];
     const chartType = 'monotoneX';
     //const data = graphData.temperatureGraph;
-    const data = graphData.temperatureGraphFull;
-    const dataSet = [graphData.temperatureGraph,graphData.temperatureGraphFull];
+    const data = dataSet[dataIndex];
+
 
     return (<div className="temprature-graph-component">
-        <div> <Radio toggle onChange={(evt)=>{console.log(evt)}} /></div>
+        <div style={{display: 'inline-block', float:'right'}}> <Radio toggle onChange={(evt)=>{setDataIndex(dataIndex===1?0:1)}} /></div>
         <AreaChart activeDot={true}
                    width={750}
                    height={200}
@@ -34,6 +36,7 @@ export const TemperatureGraph = (props) => {
                    padding={{ left: 20 }}
                    axisLine={false}
                    tickSize={3}
+                   style={{fontSize:10, fontWeight:'400', fill:'#878787'}}
 
             />
             <Tooltip/>
@@ -47,7 +50,7 @@ export const TemperatureGraph = (props) => {
                 activeDot={{onClick: (data) => dotClick(data.payload.date)}}
 
             >
-                <LabelList dataKey={YareaDataKey} position="top" />
+                <LabelList dataKey={YareaDataKey} style={{fontSize:10, fontWeight:'400', fill:'#ccc'}} position="top" />
 
             </Area>
 
