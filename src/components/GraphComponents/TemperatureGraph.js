@@ -9,7 +9,7 @@ const unitAxis = {
 };
 
 export const TemperatureGraph = (props) => {
-    const [dataIndex, setDataIndex] = useState(0);
+    //const [dataIndex, setDataIndex] = useState(0);
     const {tempUnit,dotClick,graphData} = props;
 
     const dataSet = [graphData.temperatureGraph,graphData.temperatureGraphFull];
@@ -19,11 +19,11 @@ export const TemperatureGraph = (props) => {
     const YareaDataKey = unitAxis[tempUnit];
     const chartType = 'monotoneX';
     //const data = graphData.temperatureGraph;
-    const data = dataSet[dataIndex];
+    const data = dataSet[0];
 
 
     return (<div className="temprature-graph-component">
-        <div style={{display: 'inline-block', float:'right'}}> <Radio toggle onChange={(evt)=>{setDataIndex(dataIndex===1?0:1)}} /></div>
+        <div style={{display: 'inline-block', float:'right'}}><Radio toggle/> {/*<Radio toggle onChange={()=>{setDataIndex(dataIndex===1?0:1)}} />*/}</div>
         <AreaChart activeDot={true}
                    width={750}
                    height={200}
