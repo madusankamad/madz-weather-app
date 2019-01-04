@@ -8,7 +8,7 @@ export const DayComponent = (props) => {
 
 
     return (
-        <div className={activeState ?'day-container': 'day-container inactive' } onClick={activeState? ()=>changeDateHandler(fullDate):null}>
+        <div className={activeState ?'day-container active': 'day-container inactive' } onClick={activeState? ()=>changeDateHandler(fullDate):null}>
             <div className="day">
                 <div>{day}</div>
             </div>

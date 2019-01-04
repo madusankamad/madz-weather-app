@@ -12,13 +12,11 @@ export const DayListComponent = (props) => {
             <div>
 
                 {dataSet.map((data, index) => {
-                    const indexSel =_.findIndex(data.weatherInfo.weatherTypes, (val) => val.toLowerCase() == selectedWeatherType.toLowerCase());
+                    const indexSel =_.findIndex(data.weatherInfo.weatherTypes, (val) => val.toLowerCase() === selectedWeatherType.toLowerCase());
 
-                    const isActive =selectedWeatherType.toLowerCase() =='none'|| indexSel >-1;
-                    console.log(selectedWeatherType, data.weatherInfo.weatherTypes,isActive,indexSel);
+                    const isActive =selectedWeatherType.toLowerCase() === 'none'|| indexSel >-1;
+                    //console.log(selectedWeatherType, data.weatherInfo.weatherTypes,isActive,indexSel);
                         return (
-
-
                                 <DayComponent
                                     activeState={isActive}
                                     key={index}
@@ -30,7 +28,6 @@ export const DayListComponent = (props) => {
                                     maxTemp={convertTemp(data.maxTemp,tempUnit)}
                                     changeDateHandler={changeDateHandler}
                                 />
-
                         )
                     }
                 )}

@@ -1,14 +1,18 @@
 import React from 'react';
 import {AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, LabelList} from 'recharts';
 
-const graphColor= '#FFF5CC';
-const strokeColor= '#FFE991';
-const xDataKey ='hour';
-const YareaDataKey = 'temperature';
-const chartType = 'monotoneX';
+const unitAxis = {
+    C: 'tempC',
+    F: 'tempF'
+};
 
 export const TemperatureGraph = (props) => {
-    const {data, dotClick} = props;
+    const {tempUnit,data, dotClick} = props;
+    const graphColor= '#FFF5CC';
+    const strokeColor= '#FFE991';
+    const xDataKey ='hour';
+    const YareaDataKey = unitAxis[tempUnit];
+    const chartType = 'monotoneX';
 
     return (<div className="temprature-graph-component">
 
@@ -48,5 +52,6 @@ export const TemperatureGraph = (props) => {
 
 TemperatureGraph.defaultProps = {
     dotClick: (evt, data) => console.log('clicked on Dot', data),
+    tempUnit: 'C',
     data: []
 };

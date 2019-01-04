@@ -23,8 +23,8 @@ export const Digree = (props) => {
 };
 
 Digree.propTypes ={
-    value: PropTypes.string.isRequired,
-    unit: PropTypes.string.isRequired,
+    value: PropTypes.string,
+    unit: PropTypes.string,
     position: PropTypes.string,
 
 };
