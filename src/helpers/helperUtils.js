@@ -21,7 +21,7 @@ export const getIconUrl = (icon)=> {
 };
 
 export const getDayNameFromDate = (date)=>{
-    return moment(date).format("ddd");
+    return moment(date).format("dddd");
 };
 
 export const getFormattedDate = (date,format) => {

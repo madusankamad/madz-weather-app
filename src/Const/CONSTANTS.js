@@ -26,8 +26,43 @@ export const WEATHER_TYPES ={
     ]
 };
 
+export const FORCAST_DATA_RANGE={
+    oneDay: {value:'oneDay',lable:'Single Day'},
+    allDays: {value:'allDays',lable:'Total Days'}
+};
+
+export const GRAPH_TYPES = {
+    TEMP:{name:'Temperature Graph',selector:'temperatureGraph',label:'Temperature'},
+    HUMI: {name:'Humidity Graph',selector:'humidityGraph',label:'Humidity'},
+    WIND:{name:'Wind Graph',selector:'windGraph',label:'Wind'},
+};
+
+export const GRAPH_STRUCTURE = {
+    temperatureGraph:{
+        oneDay:[],
+        allDays:[]
+    },
+    windGraph:{
+        oneDay:[],
+        allDays:[]
+    },
+    humidityGraph:{
+        oneDay:[],
+        allDays:[]
+    }
+};
+
 
 export const CITY_DATA = [
+    {
+        "id": 2419533,
+        "name": "Kindia",
+        "country": "GN",
+        "coord": {
+            "lon": -12.86576,
+            "lat": 10.05692
+        }
+    },
     {
         "id": 707860,
         "name": "Hurzuf",

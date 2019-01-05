@@ -1,13 +1,14 @@
-import {CHANGE_CITY_SUCCESS,CHANGE_DATE_SUCCESS,CHANGE_WEATHER_TYPE_SUCCESS} from '../_actions/filterActions';
+import {CHANGE_CITY_SUCCESS,CHANGE_DATE_SUCCESS,CHANGE_WEATHER_TYPE_SUCCESS,CHANGE_FORCAST_DATA_RANGE,CHANGE_ACTIVE_GRAPH} from '../_actions/filterActions';
 import {getFormattedDate} from "../helpers/helperUtils";
-import {CITY_DATA, WEATHER_TYPES} from "../Const/CONSTANTS";
+import {CITY_DATA, WEATHER_TYPES,FORCAST_DATA_RANGE,GRAPH_TYPES} from "../Const/CONSTANTS";
 
 const InitialState = {
     activeUnit:'',
     selectedDate:getFormattedDate((new Date()),'YYYY-MM-DD h:m:s'),
-    activeGraph:'',
+    forcastDataRange:FORCAST_DATA_RANGE.allDays.value,
     selectedWeatherType:WEATHER_TYPES.default.value,
-    selectedCityId: CITY_DATA[0].id
+    selectedCityId: CITY_DATA[0].id,
+    selectedGraphType:GRAPH_TYPES.TEMP.selector,
 };
 
 export function filterReducer(state = InitialState, action) {
@@ -18,6 +19,10 @@ export function filterReducer(state = InitialState, action) {
             return {...state, selectedWeatherType: action.payload};
         case CHANGE_CITY_SUCCESS :
             return {...state, selectedCityId: action.payload};
+        case CHANGE_FORCAST_DATA_RANGE :
+            return {...state, forcastDataRange: action.payload};
+        case CHANGE_ACTIVE_GRAPH :
+            return {...state, selectedGraphType: action.payload};
         default:
             return state;
     }

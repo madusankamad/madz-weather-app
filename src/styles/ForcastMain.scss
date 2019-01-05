@@ -1,17 +1,9 @@
 .main-forcast{
   color: #878787;
-  //border: 1px solid #ccc;
-  //border-radius: 5px;
-  padding: 1px;
-  margin: 15px 0px 0px 30px;
-  //background: yellow;
-  width: 220px;
-  height: 180px;
   .city-title{
     font-size: 24px;
     font-weight: normal;
     line-height: 25px;
-
   }
   .date-box,.weather-type-box{
     font-size: 18px;
@@ -22,24 +14,29 @@
     margin-top: 20px;
     display: flex;
     .weather-icon {
-      margin: auto;
+      //background: greenyellow;
+      position: relative;
+      margin: auto 0;
       img{
         width: 64px;
         height: auto;
+       // background: blue;
+        display: inline-block;
+
       }
     }
     .temp-box {
-      margin: auto;
-      //background: red;
-      width: 80px;
+      //background: lightblue;
+      width: 86px;
       h1{
-        font-size:64px;
+        font-size:74px;
         color: #000;
         text-align: right;
       }
 
     }
     .temp-unit {
+      //background: purple;
     }
   }
 

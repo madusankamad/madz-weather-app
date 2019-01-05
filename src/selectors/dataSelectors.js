@@ -18,7 +18,7 @@ export const CalculateForcastInformation = (dataList, time)=>{
     const graphsAllDays = processDataForGraphs(dataList);
     const mainForcast = mainForcastDataMapper(dataListForMainForcast);
     const daysForcast = ForcastDaysProcess(dataList);
-    const FinalData = {...graphs, mainForcast: mainForcast, daysForcast: daysForcast, fullGraph:{...graphsAllDays}};
+    const FinalData = {oneDayGraphs:{...graphs}, allDayGraphs:{...graphsAllDays},mainForcast: mainForcast, daysForcast: daysForcast};
     //console.log('**********************',FinalData);
     return FinalData;
 
@@ -28,6 +28,8 @@ export const CalculateForcastInformation = (dataList, time)=>{
 const processDataForGraphs = (dataArray) => {
     //This will Contains the Data For Temerature Graph
     const temperatureGraph = [];
+    const humidityGraph = [];
+    const windGraph=[];
     dataArray.map((list) => {
         //Data For Temperature Graph
         temperatureGraph.push(
@@ -41,10 +43,24 @@ const processDataForGraphs = (dataArray) => {
 
             }
         );
+        //Adding Data To humidityGraph
+        humidityGraph.push({
+            date: list.dt_txt,
+            hour: getHourFromDate(list.dt_txt),
+            humidity: list.main.humidity
+        });
+        //Adding Data To Humidity Graph
+        windGraph.push({
+            date: list.dt_txt,
+            hour: getHourFromDate(list.dt_txt),
+            wind: list.wind.speed
+        });
         return false;
     });
        return {
-           temperatureGraph: temperatureGraph
+           temperatureGraph: temperatureGraph,
+           humidityGraph: humidityGraph,
+           windGraph: windGraph
        }
 };
 
@@ -55,7 +71,12 @@ const mainForcastDataMapper = (data) =>{
         weather: data.weather[0].description,
         icon: WEATHER_ICON.replace('{icon-id}', data.weather[0].icon),
         date: data.dt_txt,
-        forcastDataAll: data
+        forcastDataAll: data,
+        summary: {
+            pressure:data.main.pressure,
+            humidity: data.main.humidity + '%',
+            wind:data.wind.speed+' mph'
+        }
     };
 };
 
