@@ -5,14 +5,19 @@
   "dependencies": {
     "axios": "^0.18.0",
     "convert-units": "^2.3.4",
+    "express": "^4.16.4",
     "lodash": "^4.17.11",
     "moment": "^2.23.0",
     "prop-types": "^15.6.2",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
+    "react": "^16.7.0-alpha.2",
+    "react-dom": "^16.7.0-alpha.2",
+    "react-html-parser": "^2.0.2",
+    "react-redux": "^6.0.0",
     "react-scripts": "2.1.2",
     "recharts": "^1.4.2",
     "redux": "^4.0.1",
+    "redux-immutable-state-invariant": "^2.1.0",
+    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "semantic-ui-react": "^0.84.0"
   },
@@ -20,7 +25,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall:p": "npm run build",
+    "start:node": "node server"
   },
   "eslintConfig": {
     "extends": "react-app"

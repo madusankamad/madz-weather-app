@@ -1,4 +1,4 @@
-.day-container{
+.day-container {
   //background: yellow;
   border: 1px solid transparent;
   padding: 10px;
@@ -8,27 +8,42 @@
   margin: 0 10px 0 0;
   color: #878787;
   transition: .3s all;
-  &:hover{
-    border-color: #878787;
-    cursor: pointer;
-    background: #cccccc;
+  &.active {
+    &:hover {
+      border-color: #878787;
+      cursor: pointer;
+      font-weight: bold;
+      color: #000;
+      -webkit-box-shadow: -1px 5px 10px 1px rgba(184, 184, 184, 1);
+      -moz-box-shadow: -1px 5px 10px 1px rgba(184, 184, 184, 1);
+      box-shadow: -1px 5px 10px 1px rgba(184, 184, 184, 1);
+    }
   }
-  .day,.icon,.temp{
+  &.inactive {
+    opacity: .4;
+    &:hover {
+      border-color: transparent;
+      color: #878787;
+      background: none;
+      cursor: default;
+    }
+  }
+  .day, .icon, .temp {
     width: 100%;
     display: inline-block;
     margin: 0px auto;
     font-size: 18px;
     text-align: center;
-    >div{
+    > div {
       //background: red;
       margin: auto;
     }
   }
-  .temp{
+  .temp {
     font-size: 15px;
   }
-  .icon{
-    img{
+  .icon {
+    img {
       height: 48px;
       width: 48px;
       display: inline-block;

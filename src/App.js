@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
-import {WeatherContainer} from './components/WeatherContainer';
-import { Container,Grid } from 'semantic-ui-react'
+import WeatherComponent from './components/WeatherComponentLink';
+import FilterBar from './components/FilterComponents/FilterBar';
+import {Provider} from 'react-redux';
+import {Container, Grid} from "semantic-ui-react";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        Weather App Goes Here
-          <WeatherContainer/>
-      </div>
-
+        <Provider store={this.props.store}>
+            <div className="App">
+                <Container>
+                    <Grid columns={1}>
+                    <FilterBar/>
+                    </Grid>
+                </Container>
+                <WeatherComponent/>
+            </div>
+        </Provider>
     );
   }
 }
