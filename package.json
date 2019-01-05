@@ -22,12 +22,12 @@
     "semantic-ui-react": "^0.84.0"
   },
   "scripts": {
-    "start:client": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "postinstall": "npm run build",
-    "start": "node server"
+    "postinstall:p": "npm run build",
+    "start:node": "node server"
   },
   "eslintConfig": {
     "extends": "react-app"

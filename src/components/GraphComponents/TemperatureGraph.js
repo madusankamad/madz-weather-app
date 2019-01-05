@@ -25,11 +25,11 @@ export const TemperatureGraph = (props) => {
     return (<div className="temprature-graph-component">
         <div style={{display: 'inline-block', float:'right'}}><Radio toggle/> {/*<Radio toggle onChange={()=>{setDataIndex(dataIndex===1?0:1)}} />*/}</div>
         <AreaChart activeDot={true}
-                   width={750}
-                   height={200}
+                   width={600}
+                   height={120}
                    data={data}
                    dot={true}
-                   margin={{ top: 20, right: 30, left: 0, bottom: 0 }}
+                   margin={{ top: 5, right: 30, left: 0, bottom: 0 }}
         >
 
             <XAxis dataKey={xDataKey}
