@@ -5,7 +5,7 @@ import {CITY_DATA, WEATHER_TYPES,FORCAST_DATA_RANGE,GRAPH_TYPES} from "../Const/
 const InitialState = {
     activeUnit:'',
     selectedDate:getFormattedDate((new Date()),'YYYY-MM-DD h:m:s'),
-    forcastDataRange:FORCAST_DATA_RANGE.oneDay.value,
+    forcastDataRange:FORCAST_DATA_RANGE.allDays.value,
     selectedWeatherType:WEATHER_TYPES.default.value,
     selectedCityId: CITY_DATA[0].id,
     selectedGraphType:GRAPH_TYPES.TEMP.selector,
