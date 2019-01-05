@@ -1,9 +1,7 @@
 import React,{useState} from 'react';
 import {Container,Grid} from 'semantic-ui-react';
 
-import {AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, LabelList} from 'recharts';
-import { Radio } from 'semantic-ui-react';
-import DataRangeSelector from '../FilterComponents/DataRangeSelector';
+import {AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, LabelList,BarChart,Legend,Bar} from 'recharts';
 
 const unitAxis = {
     C: 'tempC',
@@ -30,37 +28,17 @@ export const HumidityGraph = (props) => {
             </Grid.Row>
             <Grid.Row>
                 <Grid.Column>
-                    <AreaChart activeDot={true}
-                               width={600}
-                               height={200}
-                               data={data}
-                               dot={true}
-                               margin={{ top: 5, right: 30, left: 0, bottom: 0 }}
-                    >
+                    <BarChart width={600} height={200} data={data}>
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey={xDataKey} />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        <Bar dataKey={YareaDataKey} fill="#8884d8" />
+                    </BarChart>
 
-                        <XAxis dataKey={xDataKey}
-                               padding={{ left: 20 }}
-                               axisLine={false}
-                               tickSize={3}
-                               style={{fontSize:10, fontWeight:'400', fill:'#878787'}}
+                    {/*{{onClick: (data) => dotClick(data.payload.date)}}*/}
 
-                        />
-                        <Tooltip/>
-
-                        <Area
-                            type={chartType}
-                            dataKey={YareaDataKey}
-                            stroke={strokeColor}
-                            fill={graphColor}
-                            dot={{onClick: (data) => dotClick(data.payload.date)}}
-                            activeDot={{onClick: (data) => dotClick(data.payload.date)}}
-
-                        >
-                            <LabelList dataKey={YareaDataKey} style={{fontSize:10, fontWeight:'400', fill:'#ccc'}} position="top" />
-
-                        </Area>
-
-                    </AreaChart>
                 </Grid.Column>
             </Grid.Row></Grid>
         </Container>)

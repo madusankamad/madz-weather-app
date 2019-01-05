@@ -31,7 +31,7 @@ export const TemperatureGraph = (props) => {
             <Grid.Row>
                 <Grid.Column>
                     <AreaChart activeDot={true}
-                               width={600}
+                               width={630}
                                height={200}
                                data={data}
                                dot={true}

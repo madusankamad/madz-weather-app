@@ -55,6 +55,15 @@ export const GRAPH_STRUCTURE = {
 
 export const CITY_DATA = [
     {
+        "id": 2419533,
+        "name": "Kindia",
+        "country": "GN",
+        "coord": {
+            "lon": -12.86576,
+            "lat": 10.05692
+        }
+    },
+    {
         "id": 707860,
         "name": "Hurzuf",
         "country": "UA",
