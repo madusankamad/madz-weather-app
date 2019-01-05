@@ -4,21 +4,23 @@ import {WEATHER_ICON} from "../Const/CONSTANTS";
 import moment from "moment";
 
 export const CalculateForcastInformation = (dataList, time)=>{
-
+    //console.log('Processing Functions',time,dataList);
     const filteredListByDay = (_.filter(dataList, (list) => getDayFromDate(list.dt_txt) === getDayFromDate(time)));
     const filteredListByHour =  (_.filter(filteredListByDay, (list) => getHourFromDate(list.dt_txt) === getHourFromDate(time)));
-    const averagedListItem = filteredListByDay[filteredListByDay.length/2];
+    const averagedListItem = filteredListByDay[Math.floor(filteredListByDay.length/2)];
 
-    const dataListForMainForcast = filteredListByHour.length>0 ? filteredListByHour[0] : averagedListItem;
+    const dataListForMainForcast = (filteredListByHour && filteredListByHour.length>0) ? filteredListByHour[0] : averagedListItem;
+
+    //console.log('Processing Items=>',filteredListByDay,filteredListByHour,averagedListItem,dataListForMainForcast)
 
     //Get the processed data for graphs
     const graphs = processDataForGraphs(filteredListByDay);
     const graphsAllDays = processDataForGraphs(dataList);
     const mainForcast = mainForcastDataMapper(dataListForMainForcast);
     const daysForcast = ForcastDaysProcess(dataList);
-
-
-    return {...graphs, mainForcast: mainForcast, daysForcast: daysForcast, fullGraph:{...graphsAllDays}};
+    const FinalData = {...graphs, mainForcast: mainForcast, daysForcast: daysForcast, fullGraph:{...graphsAllDays}};
+    //console.log('**********************',FinalData);
+    return FinalData;
 
 };
 
