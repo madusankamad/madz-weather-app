@@ -8,14 +8,17 @@ class App extends Component {
   render() {
     return (
         <Provider store={this.props.store}>
-            <div className="App">
-                <Container>
-                    <Grid columns={1}>
-                    <FilterBar/>
+            <Container style={{width:700}}  className="App">
+                    <Grid>
+                        <Grid.Row >
+                            <FilterBar/>
+                        </Grid.Row>
+                        <Grid.Row >
+                            <WeatherComponent/>
+                        </Grid.Row>
                     </Grid>
-                </Container>
-                <WeatherComponent/>
-            </div>
+
+            </Container>
         </Provider>
     );
   }

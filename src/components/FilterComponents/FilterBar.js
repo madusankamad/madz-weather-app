@@ -12,11 +12,10 @@ const FilterBar = (props) => {
     const changeWeatherHandler = (evt, data)=>{changeWeatherType(data.value)};
 
     return(
-    <Grid columns={5}>
-        <Grid.Row>
+    <Grid columns={3}>
             <Grid.Column>
-                <h3>Simple Weather App</h3>
-            </Grid.Column>
+                <h3>Filters</h3>
+            </Grid.Column >
             <Grid.Column>
                 <Dropdown onChange={changeCityHandler} placeholder='Select City' fluid search selection
                           labeled={true}
@@ -32,7 +31,6 @@ const FilterBar = (props) => {
                             return {text: weatherType.name, value: weatherType.value}
                         })}/>
             </Grid.Column>
-        </Grid.Row>
     </Grid>)};
 
 

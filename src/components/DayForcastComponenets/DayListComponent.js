@@ -1,22 +1,23 @@
 import React from 'react';
 import {DayComponent} from "./DayComponent";
-import { Grid} from 'semantic-ui-react';
+import { Grid,Container} from 'semantic-ui-react';
 import {convertTemp, getDayNameFromDate} from '../../helpers/helperUtils';
 import _ from 'lodash';
 
 export const DayListComponent = (props) => {
     const {dataSet, tempUnit,changeDateHandler,selectedWeatherType} = props.options;
+    const columnCount = dataSet.length && dataSet.length>0?dataSet.length:6;
 
-
-    return (<Grid columns={dataSet.length > 0 ? dataSet.length : 1} className="day-list-component">
-            <div>
-
+    return (<Container className="day-list-component">
+            <Grid.Row>
+                <Grid columns={columnCount}>
                 {dataSet.map((data, index) => {
                     const indexSel =_.findIndex(data.weatherInfo.weatherTypes, (val) => val.toLowerCase() === selectedWeatherType.toLowerCase());
 
                     const isActive =selectedWeatherType.toLowerCase() === 'none'|| indexSel >-1;
                     //console.log(selectedWeatherType, data.weatherInfo.weatherTypes,isActive,indexSel);
                         return (
+                            <Grid.Column key={index}>
                                 <DayComponent
                                     activeState={isActive}
                                     key={index}
@@ -28,11 +29,13 @@ export const DayListComponent = (props) => {
                                     maxTemp={convertTemp(data.maxTemp,tempUnit)}
                                     changeDateHandler={changeDateHandler}
                                 />
+                            </Grid.Column>
                         )
                     }
                 )}
-            </div>
-        </Grid>
+                </Grid>
+            </Grid.Row>
+        </Container>
     )
 };
 

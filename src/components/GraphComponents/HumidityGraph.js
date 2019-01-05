@@ -10,19 +10,19 @@ const unitAxis = {
     F: 'tempF'
 };
 
-export const TemperatureGraph = (props) => {
+export const HumidityGraph = (props) => {
     //const [dataIndex, setDataIndex] = useState(0);
     const {tempUnit,dotClick,graphData,dataRangeSelector} = props;
 
-    const graphColor= '#FFF5CC';
+    const graphColor= 'green';
     const strokeColor= '#FFE991';
     const xDataKey ='hour';
-    const YareaDataKey = unitAxis[tempUnit];
+    const YareaDataKey = 'humidity';
     const chartType = 'monotoneX';
     const data = graphData[dataRangeSelector];
 
 
-    return (<Container style={{width:'100%'}} className="temprature-graph-component">
+    return (<Container style={{width:'100%'}} className="humidity-graph-component">
             <Grid>
             <Grid.Row>
                 <Grid.Column floated="right" width={3}>
@@ -66,7 +66,7 @@ export const TemperatureGraph = (props) => {
         </Container>)
 };
 
-TemperatureGraph.defaultProps = {
+HumidityGraph.defaultProps = {
     dotClick: (evt, data) => null,
     tempUnit: 'C',
     data: []
