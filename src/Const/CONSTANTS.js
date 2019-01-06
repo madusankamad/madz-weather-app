@@ -25,12 +25,6 @@ export const WEATHER_TYPES = {
     ]
 };
 
-const LODER_STATES = {
-    noData: 'noData',
-    loadingData: 'loading',
-    loadingDone: 'loaded'
-};
-
 export const FORCAST_DATA_RANGE = {
     oneDay: {value: 'oneDay', lable: 'Single Day'},
     allDays: {value: 'allDays', lable: 'All Days'}

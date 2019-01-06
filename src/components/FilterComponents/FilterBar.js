@@ -1,4 +1,4 @@
-import {Dropdown, Grid,Label,Form} from "semantic-ui-react";
+import {Dropdown, Grid,Form} from "semantic-ui-react";
 import {CITY_DATA, WEATHER_TYPES} from "../../Const/CONSTANTS";
 import React from "react";
 import {connect} from "react-redux";

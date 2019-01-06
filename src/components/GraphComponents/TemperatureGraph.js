@@ -14,7 +14,7 @@ export const TemperatureGraph = (props) => {
     const {tempUnit, dotClick, graphData, dataRangeSelector} = props;
 
     const graphColor = '#FFF5CC';
-    const strokeColor = '#FFE991';
+    const strokeColor = '#FFCC00';
     const xDataKey = 'hour';
     const YareaDataKey = unitAxis[tempUnit];
     const chartType = 'monotoneX';
