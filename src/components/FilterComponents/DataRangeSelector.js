@@ -1,28 +1,29 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Radio } from 'semantic-ui-react';
-import {changeForcastDataRange} from '../../_actions/filterActions';
-import {FORCAST_DATA_RANGE} from '../../Const/CONSTANTS';
+import React from "react";
+import {connect} from "react-redux";
+import {Radio} from "semantic-ui-react";
+import {changeForcastDataRange} from "../../_actions/filterActions";
+import {FORCAST_DATA_RANGE} from "../../Const/CONSTANTS";
 
 const DataRangeSelector = (props) => {
     const {dataRange} = props;
     const isChecked = FORCAST_DATA_RANGE.allDays.value === dataRange;
 
 
-    return(<Radio toggle checked={isChecked}  onChange={props.updateDataRange} label={FORCAST_DATA_RANGE[dataRange].lable}/>)
+    return (<Radio toggle checked={isChecked} onChange={props.updateDataRange}
+                   label={FORCAST_DATA_RANGE[dataRange].lable}/>)
 };
 
 
 const mapStateToProps = (state) => {
-    return{
+    return {
         dataRange: state.filters.forcastDataRange
     }
 };
 
 const mapDispatchToProps = dispatch => {
-    return{
+    return {
         updateDataRange: (evt, data) => {
-            const value = FORCAST_DATA_RANGE[data.checked?'allDays':'oneDay'].value;
+            const value = FORCAST_DATA_RANGE[data.checked ? 'allDays' : 'oneDay'].value;
             dispatch(changeForcastDataRange(value))
         }
     }

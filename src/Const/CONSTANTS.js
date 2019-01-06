@@ -4,51 +4,57 @@ const API_KEY = "c08583b207c6f114a8d3b6735059bd95";
 export const WEATHER_API = `http://api.openweathermap.org/data/2.5/forecast?{searchParams}&APPID=${API_KEY}`;
 export const WEATHER_ICON = "http://openweathermap.org/img/w/{icon-id}.png";
 
-export const TEMP_UNITS = {
-    general: "K",
-    other: {
-        celcius: "C",
-        farenheit: "F"
-    }
-
+export const UNIT_TYPES = {
+    temperature: {reducerKey: 'tempUnit', defaultUnit: 'C', other: {celcius: 'C', farenheit: 'F', kelvin: 'K'}},
+    humidity: {reducerKey: 'humiUnit', defaultUnit: ''},
+    wind: {reducerKey: 'humiUnit', defaultUnit: ''}
 };
 
-export const WEATHER_TYPES ={
-    default: {value:'none',name:'none'},
-    list:[
-        {value:'none',name:'none'},
-        {value:'clouds',name:'clouds'},
-        {value:'clear',name:'clear'},
-        {value:'rain',name:'rain'},
-        {value:'sunny',name:'sunny'},
-        {value:'light rain',name:'light rain'}
+export const WEATHER_TYPES = {
+    default: {value: 'none', name: 'none', image: ''},
+    list: [
+        {value: 'none', name: 'None', image: ''},
+        {value: 'clouds', name: 'Clouds', image: 'clouds.jpg'},
+        {value: 'clear', name: 'Clear', image: 'clearsky.jpg'},
+        {value: 'rain', name: 'Rain', image: 'rain.jpg'},
+        {value: 'sunny', name: 'Sunny', image: 'sunny.jpg'},
+        {value: 'light rain', name: 'Light Rain', image: 'light-rain.jpg'},
+        {value: 'snow', name: 'Snow', image: 'snow.jpg'},
+        {value: 'storm', name: 'Storm', image: 'storm.jpg'}
 
     ]
 };
 
-export const FORCAST_DATA_RANGE={
-    oneDay: {value:'oneDay',lable:'Single Day'},
-    allDays: {value:'allDays',lable:'Total Days'}
+const LODER_STATES = {
+    noData: 'noData',
+    loadingData: 'loading',
+    loadingDone: 'loaded'
+};
+
+export const FORCAST_DATA_RANGE = {
+    oneDay: {value: 'oneDay', lable: 'Single Day'},
+    allDays: {value: 'allDays', lable: 'All Days'}
 };
 
 export const GRAPH_TYPES = {
-    TEMP:{name:'Temperature Graph',selector:'temperatureGraph',label:'Temperature'},
-    HUMI: {name:'Humidity Graph',selector:'humidityGraph',label:'Humidity'},
-    WIND:{name:'Wind Graph',selector:'windGraph',label:'Wind'},
+    TEMP: {name: 'Temperature Graph', selector: 'temperatureGraph', label: 'Temperature'},
+    HUMI: {name: 'Humidity Graph', selector: 'humidityGraph', label: 'Humidity'},
+    WIND: {name: 'Wind Graph', selector: 'windGraph', label: 'Wind'},
 };
 
+
 export const GRAPH_STRUCTURE = {
-    temperatureGraph:{
-        oneDay:[],
-        allDays:[]
+    temperatureGraph: {
+        oneDay: [],
+        allDays: []
     },
-    windGraph:{
-        oneDay:[],
-        allDays:[]
+    windGraph: {
+        oneDay: [],
+        allDays: []
     },
-    humidityGraph:{
-        oneDay:[],
-        allDays:[]
+    humidityGraph: {
+        oneDay: [],
+        allDays: []
     }
 };
 

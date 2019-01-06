@@ -1,6 +1,6 @@
 import {FETCH_WEATHER_DATA_SUCCESS} from "../_actions/weatherInfoActions";
 
-const InitialState = [];
+const InitialState = {};
 
 export function weatherReducer(state = InitialState, action) {
     switch (action.type) {

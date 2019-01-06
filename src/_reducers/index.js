@@ -1,11 +1,9 @@
-import { combineReducers } from 'redux';
-import {graphReducer} from './graphReducer';
-import {weatherReducer} from './weatherInfoReducer';
-import {filterReducer} from './filterReducer';
-import {mainForcastReducer} from './mainForcastReducer';
-import {daysForcast} from './daysForcastReducer';
-
-
+import {combineReducers} from "redux";
+import {graphReducer} from "./graphReducer";
+import {weatherReducer} from "./weatherInfoReducer";
+import {filterReducer} from "./filterReducer";
+import {mainForcastReducer} from "./mainForcastReducer";
+import {daysForcast} from "./daysForcastReducer";
 
 
 const rootReducer = combineReducers({

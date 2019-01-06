@@ -1,0 +1,17 @@
+.unit-toggler {
+  display: flex;
+  //background: green;
+  width: 60px;
+  > div {
+    padding: 3px;
+    margin: 0px 3px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  .active {
+    cursor: default;
+    color: blue;
+    font-weight: bold;
+
+  }
+}

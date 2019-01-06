@@ -1,0 +1,141 @@
+/*
+* Root Container
+ */
+
+.App > .grid {
+    max-width: 750px;
+    z-index: 10;
+    position: relative;
+    background: rgba(255,255, 255, 0.95);
+    margin: 50px auto;
+}
+
+.weather-container {
+    border-radius: 10px;
+    padding: 40px;
+    width: 680px;
+    display: block;
+}
+
+/*
+* Main Forcast Component Styles
+*/
+.main-forcast {
+    color: #878787;
+}
+
+.main-forcast .city-title {
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 25px;
+}
+
+.main-forcast .date-box, .main-forcast .weather-type-box {
+    font-size: 18px;
+    font-weight: lighter;
+}
+
+.main-forcast .temp-row {
+    margin-top: 20px;
+    display: flex;
+}
+
+.main-forcast .temp-row .weather-icon {
+    position: relative;
+    margin: auto 0;
+}
+
+.main-forcast .temp-row .weather-icon img {
+    width: 64px;
+    height: auto;
+    display: inline-block;
+}
+
+.main-forcast .temp-row .temp-box {
+    width: 86px;
+}
+
+.main-forcast .temp-row .temp-box h1 {
+    font-size: 74px;
+    color: #000;
+    text-align: right;
+}
+
+/*
+* Day Container Styles
+ */
+
+.day-container {
+    border: 1px solid transparent;
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+    width: 100px;
+    margin: 0 10px 0 0;
+    color: #878787;
+    transition: 0.3s all;
+    background: #fcfcfc;
+}
+
+.day-container.active:hover {
+    border-color: #878787;
+    cursor: pointer;
+    font-weight: bold;
+    background: #fcfcfc;
+    -webkit-box-shadow: -1px 5px 10px 1px rgba(184, 184, 184, 1);
+    -moz-box-shadow: -1px 5px 10px 1px rgba(184, 184, 184, 1);
+    box-shadow: -1px 5px 10px 1px rgba(184, 184, 184, 1);
+}
+
+.day-container.inactive {
+    opacity: 0.4;
+}
+
+.day-container.inactive:hover {
+    border-color: transparent;
+    color: #878787;
+    background: none;
+    cursor: default;
+}
+
+.day-container .day, .day-container .icon, .day-container .temp {
+    width: 100%;
+    display: inline-block;
+    margin: 0px auto;
+    font-size: 12px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.day-container .temp {
+    font-size: 15px;
+}
+
+.day-container .icon img {
+    height: 48px;
+    width: 48px;
+    display: inline-block;
+}
+
+/*
+* Unit Toggler Styles
+ */
+
+.unit-toggler {
+    display: flex;
+    width: 60px;
+}
+
+.unit-toggler > div {
+    padding: 3px;
+    margin: 0px 3px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.unit-toggler .active {
+    cursor: default;
+    color: blue;
+    font-weight: bold;
+}
+
