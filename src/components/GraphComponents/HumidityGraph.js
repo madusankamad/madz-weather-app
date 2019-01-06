@@ -1,7 +1,7 @@
-import React,{useState} from 'react';
-import {Container,Grid} from 'semantic-ui-react';
+import React, {useState} from "react";
+import {Container, Grid} from "semantic-ui-react";
 
-import {AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, LabelList,BarChart,Legend,Bar} from 'recharts';
+import {Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis} from "recharts";
 
 const unitAxis = {
     C: 'tempC',
@@ -10,18 +10,18 @@ const unitAxis = {
 
 export const HumidityGraph = (props) => {
     //const [dataIndex, setDataIndex] = useState(0);
-    const {tempUnit,dotClick,graphData,dataRangeSelector} = props;
+    const {tempUnit, dotClick, graphData, dataRangeSelector} = props;
 
-    const graphColor= 'green';
-    const strokeColor= '#FFE991';
-    const xDataKey ='hour';
+    const graphColor = 'green';
+    const strokeColor = '#FFE991';
+    const xDataKey = 'hour';
     const YareaDataKey = 'humidity';
     const chartType = 'monotoneX';
     const data = graphData[dataRangeSelector];
 
 
-    return (<Container style={{width:'100%'}} className="humidity-graph-component">
-            <Grid>
+    return (<Container style={{width: '100%', padding: '0px 30px'}} className="humidity-graph-component">
+        <Grid>
             <Grid.Row>
                 <Grid.Column floated="right" width={3}>
                 </Grid.Column>
@@ -29,19 +29,19 @@ export const HumidityGraph = (props) => {
             <Grid.Row>
                 <Grid.Column>
                     <BarChart width={600} height={200} data={data}>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey={xDataKey} />
+                        <CartesianGrid strokeDasharray="3 3"/>
+                        <XAxis dataKey={xDataKey}/>
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Bar dataKey={YareaDataKey} fill="#8884d8" />
+                        <Bar dataKey={YareaDataKey} fill="#8884d8"/>
                     </BarChart>
 
                     {/*{{onClick: (data) => dotClick(data.payload.date)}}*/}
 
                 </Grid.Column>
             </Grid.Row></Grid>
-        </Container>)
+    </Container>)
 };
 
 HumidityGraph.defaultProps = {

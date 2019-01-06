@@ -1,4 +1,4 @@
-import {SET_FORCAST_ALL_DAYS_SUCCESS} from '../_actions/dayForcastActions';
+import {SET_FORCAST_ALL_DAYS_SUCCESS} from "../_actions/dayForcastActions";
 
 const InitialState = [];
 

@@ -1,14 +1,24 @@
-import {CHANGE_CITY_SUCCESS,CHANGE_DATE_SUCCESS,CHANGE_WEATHER_TYPE_SUCCESS,CHANGE_FORCAST_DATA_RANGE,CHANGE_ACTIVE_GRAPH} from '../_actions/filterActions';
+import {
+    CHANGE_ACTIVE_GRAPH,
+    CHANGE_CITY_SUCCESS,
+    CHANGE_DATE_SUCCESS,
+    CHANGE_FORCAST_DATA_RANGE,
+    CHANGE_WEATHER_TYPE_SUCCESS
+} from "../_actions/filterActions";
 import {getFormattedDate} from "../helpers/helperUtils";
-import {CITY_DATA, WEATHER_TYPES,FORCAST_DATA_RANGE,GRAPH_TYPES} from "../Const/CONSTANTS";
+import {CITY_DATA, FORCAST_DATA_RANGE, GRAPH_TYPES, UNIT_TYPES, WEATHER_TYPES} from "../Const/CONSTANTS";
 
 const InitialState = {
-    activeUnit:'',
-    selectedDate:getFormattedDate((new Date()),'YYYY-MM-DD h:m:s'),
-    forcastDataRange:FORCAST_DATA_RANGE.allDays.value,
-    selectedWeatherType:WEATHER_TYPES.default.value,
+    activeUnit: {
+        tempUnit: UNIT_TYPES.temperature.defaultUnit,
+        humiUnit: UNIT_TYPES.humidity.defaultUnit,
+        windUnit: UNIT_TYPES.wind.defaultUnit
+    },
+    selectedDate: getFormattedDate((new Date()), 'YYYY-MM-DD h:m:s'),
+    forcastDataRange: FORCAST_DATA_RANGE.allDays.value,
+    selectedWeatherType: WEATHER_TYPES.default.value,
     selectedCityId: CITY_DATA[0].id,
-    selectedGraphType:GRAPH_TYPES.TEMP.selector,
+    selectedGraphType: GRAPH_TYPES.TEMP.selector,
 };
 
 export function filterReducer(state = InitialState, action) {

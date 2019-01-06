@@ -1,12 +1,12 @@
-import { connect } from 'react-redux';
-import {WeatherComponent} from './WeatherComponent';
-import {getCityWeather} from '../_thunks/weatherApiThunks';
-import {changeDateSuccess,changeWeatherTypeSuccess,changeCitySuccess} from '../_actions/filterActions';
-import {newDataFetchSuccess} from '../_actions/commonActions';
+import {connect} from "react-redux";
+import {WeatherComponent} from "./WeatherComponent";
+import {getCityWeather} from "../_thunks/weatherApiThunks";
+import {changeCitySuccess, changeDateSuccess, changeWeatherTypeSuccess} from "../_actions/filterActions";
+import {newDataFetchSuccess} from "../_actions/commonActions";
 
 
-const mapStateToProps = (state,props) => {
-    return{
+const mapStateToProps = (state, props) => {
+    return {
         weatherInfo: state.weatherInfo,
         graphs: state.graphs,
         mainForcast: state.mainForcast,
@@ -19,12 +19,12 @@ const mapStateToProps = (state,props) => {
     }
 };
 const mapDispatchToProps = dispatch => {
-    return{
-        fetchWeatherInformationById : (cityId,time) => {
-            dispatch(getCityWeather(cityId,time));
+    return {
+        fetchWeatherInformationById: (cityId, time) => {
+            dispatch(getCityWeather(cityId, time));
         },
-        changeDateAndList : (date,options) => {
-            dispatch(newDataFetchSuccess(options,date));
+        changeDateAndList: (date, options) => {
+            dispatch(newDataFetchSuccess(options, date));
             dispatch(changeDateSuccess(date));
         },
 
